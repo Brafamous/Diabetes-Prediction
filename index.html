@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Machine Learning Technique for Predicting Diabetes</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="script.js"></script>
+      </head>
+
+    <a href="https://famoustay.com/">
+        <img src="images\logo.png" alt="Home" style="position: absolute; top: 40; left:40; width: 60px; height: 60px;"> 
+      </a>
+
+    <body>
+        <h1>Diabetes Predicton Using Machine Learning</h1>
+        <h3>Author: Famous Ghanyo Tay</h3>
+          <footer>Published: March 2023</footer>
+
+        <p>Diabetes is a chronic condition characterized by high 
+            blood sugar levels due to the body's inability to properly regulate insulin.Diabetes can be
+             classified as type 1 or type 2. As of 2021, approximately 422 million adults worldwide were living with diabetes. </p>
+        <h2>Project Scope</h2>
+        <img src="Images\Diabetes.jpg" alt="Diabetes"></a>
+        <p>The Machine Learning Model for Diabetes Prediction project aims to develop an intelligent system that can accurately predict the likelihood
+             of an individual developing diabetes. In this project, four popular algorithms are used and the best one is chosen. They are:</p> 
+        <ul>
+            <li> Support Vector Classifier</li>
+            <li>Random Forest Classifier</li>
+            <li> AdaBoost Classifier</li>
+            <li>Gradient Boosting Classifier</li>
+        </ul> 
+        
+        <h2>Dataset</h2>
+  <p>The data for this project is available at <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set/code">kaggle</a>.
+    The dataset used for this project is the well-known Pima Indians Diabetes Dataset obtained from Kaggle. </p>
+        
+
+    <h2>Exploratory Data Analysis on the Data</h2>
+    <p>
+        AIM: To gain insights into the dataset, identify patterns, and understand the relationships between different
+         variables.
+    </p>
+
+    <h3> Visualizing the Correlation between the Features and the Targest</h3>
+
+    <img src="Images\heatmap.png" alt="Heatmap"></a>
+
+    <p> We can clearly see that 'Glucose' has a strong positive correlation with the 'Outcome'. 'Blood Pressure' is having the lowest positive correlation with 'Outcome'.</p>
+    To be more specific, I am going to plot histplot of the 'Glucose' feature with the target 'Outcome'.
+
+    <img src="Images\histplot.png" alt="Histplot"></a> 
+    <p>
+        From the above plot, we see a positive linear correlation.
+        <li> As the value of `Glucose` increases, the count of patients having diabetes increases i.e. value of `Outcome` as 1, increases. </li>
+        
+        <li>  Also, after the `Glucose` value of 125, there is a steady increase in the number of patients having `Outcome` of 1.</li>
+        <li> Note, when `Glucose` value is 0, it means the measurement is missing. We need to fill that values with the *mean* or *median* and then it will make sense.</li>
+        <li> So, there is a significant amount of positive linear correlation. </li>
+       
+    </p>
+    <p> To view more plots with detailed explanation, view the entire notebook <a href="https://nbviewer.jupyter.org/github/Brafamous/Diabetes-Prediction/blob/main/EDA%20and%20Preproessing.ipynb"><p>here</p></a>
+    </p> 
+
+ <h2>Building and Evaluation of the ML Models</h2>
+ <p>Like I mentioned earlier, I am going to consider 4  algorithms; Support Vector Classifier (SVC), Random  Forest Classifier (RFC), AdaBoost Classifier (ABC) and Gradient Boosting Classifier (GBC)</p>
+
+    <img src="Images\artificial.png" alt="Ai Image"></a>
+
+    <h3> Support Vector Classifier</h2>
+      <p> 
+        SVC is a variant of SVM that aims to find the best hyperplane in a high-dimensional feature space to separate 
+        different classes of data. It works by mapping the input data into a higher-dimensional space and finding the 
+        optimal decision boundary that maximizes the margin between classes. The choice of kernel plays a crucial role 
+        in determining the shape of the decision boundary. In my project, I demonstrated the impact of the kernels (linear, polynomial, radial basis function, and sigmoid)  on the model's performance. For each kernel
+        , I evaluated the performance of SVC on the training data and testing data. The accuracy scores were then visualized as seen below;
+
+      </p>
+      <img src="Images\svc_kernels.png" alt="Kernels"></a>
+
+      <p> We can see the 'poly' and 'rbf' kernels have significantly higher training accuracy than testing accuracy. This suggest they are overfitting the training data and may not
+        perform very well on unseen data. We will select the 'linear' kernel since it has the highest testing accuracy. This means it can generalize well to unseen data and provide accurate predictions.
+      
+      </p>
+
+      <h3>Random Forest Classifier</h3>
+      <p>
+        Random Forest (RF) is an ensemble learning method that combines multiple decision trees to make predictions.
+        Here, we are using 500 decision trees, each having a maximum depth of 10.
+      </p>
+
+      <h3>AdaBoost Classifier</h3>
+      <p>
+        The AdaBoostClassifier is a boosting algorithm that combines multiple weak learners to create a strong learner. It iteratively adjusts the weights of misclassified samples to focus on difficult examples. By combining weak learners,
+         AdaBoost can improve classification performance. 
+         I used 500 base estimators with a learning rate of 0.5. Learning rate controls the contribution of each weak learner to the final prediction.
+      </p>
+      <h3>Gradient Boosting Classifier</h3>
+      <p>
+        The GradientBoostingClassifier is another boosting algorithm that combines multiple decision trees to create a strong learner. It iteratively fits new trees to the residuals of the previous trees, gradually improving the model's performance. 
+        I used 500 base estimators with a learning rate of 0.5 and maximum depth of 5.
+
+      </p>
+      <h2> Choosing The Best Model</h2>
+      
+
+      <table>
+        <tr>
+          <th>ML Model</th>
+          <th>Accuracy Score</th>
+        </tr>
+        <tr>
+          <td>Support Vector Classifier</td>
+          <td>0.72077</td>
+        </tr>
+        <tr>
+          <td>Random Forest Classifier</td>
+          <td>0.74026</td>
+        </tr>
+        <tr>
+          <td>AdaBoost Classifier</td>
+          <td>0.74675</td>
+        </tr>
+        <tr>
+          <td>Gradient Boosting Classifier</td>
+          <td>0.73376</td>
+        </tr>
+        
+      </table>
+      <h3>ROC Curves</h3>
+      <img src="Images\ROC.png" alt="ROC"></a>
+      <p>
+        Out of the four models, we can clearly see that the AdaBoost model is good for our dataset.
+         Hence this is the model I am going to choose for my predictions.
+      </p>
+
+      <a href="https://github.com/Brafamous/Diabetes-Prediction"><h2>Link to Github Repo</h2></a>
+
+    </body>
+
+
+</html>

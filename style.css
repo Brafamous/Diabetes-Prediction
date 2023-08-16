@@ -1,0 +1,92 @@
+/* CSS code for styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    padding: 0;
+    background-color: #d5d8ca;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #057c21;
+  }
+  
+  h2 {
+    color: d #c11a1d;
+  }
+
+  h3 {
+    color: #218548;
+    text-align: center;
+  }
+  
+  p {
+    color: #1c0404;
+    line-height: 1.5;
+  }
+  
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #045d04;
+  }
+  
+  th {
+    background-color: #2ed33b;
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  footer {
+    color: #180101;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* CSS code for hover effect */
+  .hover-effect:hover {
+    opacity: 0.8;
+  }
+  
+  /* CSS code for responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+  }
+
+    /* Add hover effect to table rows */
+    tr:hover {
+      background-color: #f2f2f2;
+    }
+    
+   
+    
+    /* Add hover effect to images */
+    img:hover {
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
+    }
